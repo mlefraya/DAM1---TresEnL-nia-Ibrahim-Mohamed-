@@ -18,28 +18,28 @@ public class TUI {
         int opcion = sc.nextInt();
 
         if (opcion == 1) {
-            System.out.println("Has seleccionado, nueva partida");
+            System.out.println("Has seleccionado, ¡ Nueva partida !");
             System.out.println("------------------");
             System.out.println(op1);
             System.out.println(op2);
             System.out.println(op3);
             System.out.println(op4);
         } else if (opcion == 2) {
-            System.out.println("Has seleccionado, nueva partida");
+            System.out.println("Has seleccionado, ¡ Cargar partida !");
             System.out.println("------------------");
             System.out.println(op1);
             System.out.println(op2);
             System.out.println(op3);
             System.out.println(op4);
         } else if (opcion == 3) {
-            System.out.println("Has seleccionado, nueva partida");
+            System.out.println("Has seleccionado, Configuración. . .");
             System.out.println("------------------");
             System.out.println(op1);
             System.out.println(op2);
             System.out.println(op3);
             System.out.println(op4);
         } else if (opcion == 4) {
-            System.out.println("Has seleccionado, nueva partida");
+            System.out.println("Has seleccionado, ¡ Salir del menú !");
             System.out.println("------------------");
             System.out.println(op1);
             System.out.println(op2);
