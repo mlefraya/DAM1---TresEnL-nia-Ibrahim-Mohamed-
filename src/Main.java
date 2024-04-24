@@ -3,27 +3,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        mostrarMenu();
+        TUI menu = new TUI();
+        menu.mostrarMenu();
     }
 
-    public static void mostrarMenu() {
-        String op1 = "1. Nueva partida";
-        String op2 = "2. Cargar partida";
-        String op3 = "3. Configuración";
-        String op4 = "4. Salir";
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println(op1);
-        System.out.println(op2);
-        System.out.println(op3);
-        System.out.println(op4);
-
-        int opu = sc.nextInt();
-
-        procesarOpcion(opu);
-    }
-
-    public static void procesarOpcion(int opcion) {
+    private void procesarOpcion(int opcion) {
         switch (opcion) {
             case 1:
                 System.out.println("Comenzando nueva partida");
@@ -40,7 +24,7 @@ public class Main {
                 break;
             default:
                 System.out.println("Opción inválida. Inténtalo de nuevo.");
-                mostrarMenu();
+                //mostrarMenu(); // Vuelve a mostrar el menú si la opción es inválida
                 break;
         }
     }
