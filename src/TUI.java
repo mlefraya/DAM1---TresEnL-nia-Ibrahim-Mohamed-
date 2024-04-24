@@ -53,5 +53,30 @@ public class TUI {
             System.out.println(op3);
             System.out.println(op4);
         }
+
     }
-}
+
+    //////
+
+    public void mostrarTaulell(){
+
+        int[][] tablero = {
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0}
+        };
+
+        for (int i=0; i< 3; i++){
+            for (int j=0; j<3; j++){
+                System.out.print(tablero[i][j]);
+                if (j<2) {
+                    System.out.print("\t");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("Turno del jugador 1");
+    }
+    }
+
