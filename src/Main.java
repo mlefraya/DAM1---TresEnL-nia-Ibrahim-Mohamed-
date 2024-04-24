@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         TUI menu = new TUI();
-        menu.mostrarMenu();
+        menu.recollirJugada();
     }
 
     private void procesarOpcion(int opcion) {

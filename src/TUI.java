@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class TUI {
+    Scanner sc = new Scanner(System.in);
 
     public void mostrarMenu(){
 
@@ -9,7 +10,6 @@ public class TUI {
         String op3 = "3. Configuración";
         String op4 = "4. Salir";
 
-        Scanner sc = new Scanner(System.in);
         System.out.println(op1);
         System.out.println(op2);
         System.out.println(op3);
@@ -77,6 +77,34 @@ public class TUI {
         }
         System.out.println();
         System.out.println("Turno del jugador 1");
+    }
+
+    public void recollirJugada(){
+        char[][] tablero = {
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0}
+        };
+
+        System.out.println("¿En qué casilla te quieres posicionar?");
+        int filas = sc.nextInt();
+        int columnas = sc.nextInt();
+
+
+        for (int i=0; i< 3; i++){
+            for (int j=0; j<3; j++){
+                tablero[filas-1][columnas-1] = 'X';
+                System.out.print(tablero[i][j]);
+                if (j<2) {
+                    System.out.print("\t");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void fiDePartida(){
+        System.out.println("Método incompleto");
     }
     }
 
