@@ -7,7 +7,7 @@ public class TUI {
 
         String op1 = "1. Nueva partida";
         String op2 = "2. Cargar partida";
-        String op3 = "3. Configuración";
+        String op3 = "3. Configuraciónff";
         String op4 = "4. Salir";
 
         System.out.println(op1);
