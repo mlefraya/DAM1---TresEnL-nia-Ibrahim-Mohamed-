@@ -4,12 +4,13 @@ public class TUI {
     Scanner sc = new Scanner(System.in);
 
     boolean partida = false;
-
+    boolean cpartida = false;
+    boolean configuracion = false;
     public void mostrarMenu(){
 
         String op1 = "1. Nueva partida";
         String op2 = "2. Cargar partida";
-        String op3 = "3. Configuraciónff";
+        String op3 = "3. Configuración";
         String op4 = "4. Salir";
 
         System.out.println(op1);
@@ -26,6 +27,8 @@ public class TUI {
             System.out.println("------------------");
 
         } else if (opcion == 2) {
+
+            cpartida = true;
             System.out.println("Has seleccionado, ¡ Cargar partida !");
             System.out.println("------------------");
             System.out.println(op1);
@@ -33,12 +36,9 @@ public class TUI {
             System.out.println(op3);
             System.out.println(op4);
         } else if (opcion == 3) {
-            System.out.println("Has seleccionado, Configuración. . .");
-            System.out.println("------------------");
-            System.out.println(op1);
-            System.out.println(op2);
-            System.out.println(op3);
-            System.out.println(op4);
+            configuracion = true;
+
+
         } else if (opcion == 4) {
             System.out.println("Has seleccionado, ¡ Salir del menú !");
             System.out.println("------------------");
