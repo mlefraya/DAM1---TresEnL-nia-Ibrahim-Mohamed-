@@ -29,14 +29,18 @@ public class Joc {
 
     public void jugar(int fila, int columna) {
         // Verificar si la casilla está vacía antes de colocar la ficha
-        fila=fila-1;
-        columna=columna-1;
         if (tablero[fila][columna] == ' ') {
             tablero[fila][columna] = turnoActual; // Colocar la ficha del jugador en la casilla
-            // No cambiar el turno aquí, lo hacemos solo para simular la jugada ganadora
+            cambiarTurno(); // Cambiar al siguiente jugador
         } else {
             System.out.println("La casilla seleccionada ya está ocupada. Por favor, elige otra.");
         }
+    }
+
+    // Método para cambiar el turno al siguiente jugador
+    private void cambiarTurno() {
+        // Si el turno actual es 'X', cambia a 'O', y viceversa
+        turnoActual = (turnoActual == 'X') ? 'O' : 'X';
     }
 
 
