@@ -4,21 +4,28 @@ public class Main {
 
     public static void main(String[] args) {
         TUI menu = new TUI();
+        menu.recollirJugada();
+    }
 
-        menu.mostrarMenu();
-
-        if (menu.partida) {
-         menu.mostrarTaulell();
-         menu.recollirJugada();
-        } else if (menu.cpartida) {
-            menu.mostrarTaulell();
-        } else if (menu.configuracion) {
-            System.out.println("Has seleccionado, Configuración. . .");
-            System.out.println("------------------");
-            System.out.println("Nivel de dificultad");
-            System.out.println("Ajustar sonido");
+    private void procesarOpcion(int opcion) {
+        switch (opcion) {
+            case 1:
+                System.out.println("Comenzando nueva partida");
+                break;
+            case 2:
+                System.out.println("Cargando partida...");
+                break;
+            case 3:
+                System.out.println("Ajustar dificultad");
+                System.out.println("Ajustar sonido");
+                break;
+            case 4:
+                System.out.println("Cerrando aplicación...");
+                break;
+            default:
+                System.out.println("Opción inválida. Inténtalo de nuevo.");
+                //mostrarMenu(); // Vuelve a mostrar el menú si la opción es inválida
+                break;
         }
     }
-
-
-    }
+}
