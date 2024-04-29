@@ -30,7 +30,7 @@ public class Joc {
     public void jugar(int fila, int columna) {
         // Verificar si la casilla está vacía antes de colocar la ficha
         if (tablero[fila][columna] == ' ') {
-            tablero[fila][columna] = turnoActual; // Colocar la ficha del jugador en la casilla
+            tablero[fila][columna] = 'X'; // Colocar la ficha del jugador en la casilla
             cambiarTurno(); // Cambiar al siguiente jugador
         } else {
             System.out.println("La casilla seleccionada ya está ocupada. Por favor, elige otra.");
