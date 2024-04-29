@@ -5,9 +5,9 @@ public class Joc {
             {0, 0, 0}
     };
 
-    public Joc(int filas, int columnas) {
+    
 
-    }
+
 
     public Joc() {
 
