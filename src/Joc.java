@@ -9,7 +9,7 @@ public class Joc {
     // Constructor para inicializar el juego con el tamaño del tablero
     public Joc(int filas, int columnas) {
         tablero = new char[filas][columnas];
-        turnoActual = 'X'; // Inicia el juego con el jugador 'X'
+        turnoActual = 'X'; // Inicializar el juego con el jugador 'X'
     }
 
 
