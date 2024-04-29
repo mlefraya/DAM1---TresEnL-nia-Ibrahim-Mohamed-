@@ -3,11 +3,13 @@ import java.util.Scanner;
 public class TUI {
     Scanner sc = new Scanner(System.in);
 
+    boolean partida = false;
+
     public void mostrarMenu(){
 
         String op1 = "1. Nueva partida";
         String op2 = "2. Cargar partida";
-        String op3 = "3. Configuración";
+        String op3 = "3. Configuraciónff";
         String op4 = "4. Salir";
 
         System.out.println(op1);
@@ -18,12 +20,11 @@ public class TUI {
         int opcion = sc.nextInt();
 
         if (opcion == 1) {
+
+             partida = true;
             System.out.println("Has seleccionado, ¡ Nueva partida !");
             System.out.println("------------------");
-            System.out.println(op1);
-            System.out.println(op2);
-            System.out.println(op3);
-            System.out.println(op4);
+
         } else if (opcion == 2) {
             System.out.println("Has seleccionado, ¡ Cargar partida !");
             System.out.println("------------------");

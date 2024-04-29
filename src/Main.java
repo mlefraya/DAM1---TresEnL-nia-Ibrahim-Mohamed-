@@ -1,5 +1,3 @@
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.Scanner;
 
 public class Main {
@@ -7,9 +5,6 @@ public class Main {
     public static void main(String[] args) {
         TUI menu = new TUI();
         menu.recollirJugada();
-    }
-    public void NovaPartida() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("");
     }
 
     private void procesarOpcion(int opcion) {
