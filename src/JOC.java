@@ -2,7 +2,7 @@ import jdk.jshell.spi.ExecutionControl;
 
 import java.util.Scanner;
 
-public class Joc {
+public class JOC {
     Scanner sc = new Scanner(System.in);
     public void NovaPartida() throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("");
