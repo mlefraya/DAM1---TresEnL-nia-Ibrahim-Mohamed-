@@ -12,6 +12,10 @@ public class Joc {
         turnoActual = 'X'; // Inicializar el juego con el jugador 'X'
     }
 
+    public Joc() {
+
+    }
+
 
     public void novaPartida() {
         // Recorrer cada celda del tablero y establecerla como vacía o en blanco

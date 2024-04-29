@@ -8,15 +8,10 @@ public class TUI {
     boolean configuracion = false;
     public void mostrarMenu(){
 
-        String op1 = "1. Nueva partida";
-        String op2 = "2. Cargar partida";
-        String op3 = "3. Configuración";
-        String op4 = "4. Salir";
-
-        System.out.println(op1);
-        System.out.println(op2);
-        System.out.println(op3);
-        System.out.println(op4);
+        System.out.println("1. Nueva partida");
+        System.out.println("2. Cargar partida");
+        System.out.println("3. Configuración");
+        System.out.println("4. Salir");
 
         int opcion = sc.nextInt();
 
@@ -31,10 +26,11 @@ public class TUI {
             cpartida = true;
             System.out.println("Has seleccionado, ¡ Cargar partida !");
             System.out.println("------------------");
-            System.out.println(op1);
-            System.out.println(op2);
-            System.out.println(op3);
-            System.out.println(op4);
+            System.out.println("1. Nueva partida");
+            System.out.println("2. Cargar partida");
+            System.out.println("3. Configuración");
+            System.out.println("4. Salir");
+
         } else if (opcion == 3) {
             configuracion = true;
 
@@ -42,17 +38,19 @@ public class TUI {
         } else if (opcion == 4) {
             System.out.println("Has seleccionado, ¡ Salir del menú !");
             System.out.println("------------------");
-            System.out.println(op1);
-            System.out.println(op2);
-            System.out.println(op3);
-            System.out.println(op4);
+            System.out.println("1. Nueva partida");
+            System.out.println("2. Cargar partida");
+            System.out.println("3. Configuración");
+            System.out.println("4. Salir");
+
         } else {
             System.out.println("Elección inválida");
             System.out.println("------------------");
-            System.out.println(op1);
-            System.out.println(op2);
-            System.out.println(op3);
-            System.out.println(op4);
+            System.out.println("1. Nueva partida");
+            System.out.println("2. Cargar partida");
+            System.out.println("3. Configuración");
+            System.out.println("4. Salir");
+
         }
 
     }
