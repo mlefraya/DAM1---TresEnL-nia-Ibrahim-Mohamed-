@@ -1,100 +1,115 @@
+import jdk.jshell.spi.ExecutionControl;
+
+import java.util.Scanner;
+
 public class Joc {
-    private char[][] taulell;
-    private char torn;
+    private char[][] tablero;
+    private char turnoActual;
+
+    // Constructor para inicializar el juego con el tamaño del tablero
+    public Joc(int filas, int columnas) {
+        tablero = new char[filas][columnas];
+        turnoActual = 'X'; // Inicializar el juego con el jugador 'X'
+    }
 
     public Joc() {
-        taulell = new char[3][3];
-        // Inicializar el tablero con espacios en blanco
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                taulell[i][j] = ' ';
+
+    }
+
+
+    public void novaPartida() {
+        // Recorrer cada celda del tablero y establecerla como vacía o en blanco
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                tablero[i][j] = ' '; // representa una celda en blanco
             }
         }
-        torn = 'X'; // Comienza el jugador X
     }
 
-    // Otros métodos de la clase Joc...
 
-    public boolean jugar(int fila, int columna) {
-        if (fila < 0 || fila >= 3 || columna < 0 || columna >= 3) {
-            System.out.println("Movimiento inválido. Fuera del rango del tablero.");
-            return false;
-        }
-        if (taulell[fila][columna] != ' ') {
-            System.out.println("La casilla ya está ocupada. Elige otra.");
-            return false;
-        }
-        taulell[fila][columna] = torn;
-        if (torn == 'X') {
-            torn = 'O';
+    public void jugar(int fila, int columna) {
+        // Verificar si la casilla está vacía antes de colocar la ficha
+        if (tablero[fila][columna] == ' ') {
+            tablero[fila][columna] = 'X'; // Colocar la ficha del jugador en la casilla
+            cambiarTurno(); // Cambiar al siguiente jugador
         } else {
-            torn = 'X';
+            System.out.println("La casilla seleccionada ya está ocupada. Por favor, elige otra.");
         }
-        return true;
     }
+
+    // Método para cambiar el turno al siguiente jugador
+    private void cambiarTurno() {
+        // Si el turno actual es 'X', cambia a 'O', y viceversa
+        turnoActual = (turnoActual == 'X') ? 'O' : 'X';
+    }
+
 
     public boolean jugadaGuanyadora(int fila, int columna) {
-        // Guardar el estado actual del tablero y el turno
-        char[][] tableroTemp = clonarTablero();
-        char turnoTemp = torn;
+        char jugadorActual = tablero[fila][columna];
+        // Verificar la fila
+        int contador = 0;
+        for (int i = 0; i < tablero[0].length; i++) {
+            if (tablero[fila][i] == jugadorActual) {
+                contador++;
+            }
+        }
+        if (contador == 3) {
+            return true;
+        }
 
-        // Realizar la jugada en la fila y columna especificadas
-        taulell[fila][columna] = torn;
+        // Verificar la columna
+        contador = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            if (tablero[i][columna] == jugadorActual) {
+                contador++;
+            }
+        }
+        if (contador == 3) {
+            return true;
+        }
 
-        // Verificar si hay una jugada ganadora
-        boolean jugadaGanadora = verificarGanador();
-
-        // Restaurar el estado original del tablero y el turno
-        taulell = tableroTemp;
-        torn = turnoTemp;
-
-        return jugadaGanadora;
-    }
-
-    public boolean verificarGanador() {
-        // Verificar ganador en filas
-        for (int i = 0; i < 3; i++) {
-            if (taulell[i][0] != ' ' && taulell[i][0] == taulell[i][1] && taulell[i][1] == taulell[i][2]) {
-                System.out.println("¡Felicidades! ¡El jugador " + taulell[i][0] + " ha ganado!");
+        // Verificar la diagonal principal (si la casilla está en la diagonal principal)
+        if (fila == columna) {
+            contador = 0;
+            for (int i = 0; i < tablero.length; i++) {
+                if (tablero[i][i] == jugadorActual) {
+                    contador++;
+                }
+            }
+            if (contador == 3) {
                 return true;
             }
         }
 
-        // Verificar ganador en columnas
-        for (int j = 0; j < 3; j++) {
-            if (taulell[0][j] != ' ' && taulell[0][j] == taulell[1][j] && taulell[1][j] == taulell[2][j]) {
-                System.out.println("¡Felicidades! ¡El jugador " + taulell[0][j] + " ha ganado!");
+        // Verificar la diagonal secundaria (si la casilla está en la diagonal secundaria)
+        if (fila + columna == tablero.length - 1) {
+            contador = 0;
+            for (int i = 0; i < tablero.length; i++) {
+                if (tablero[i][tablero.length - 1 - i] == jugadorActual) {
+                    contador++;
+                }
+            }
+            if (contador == 3) {
                 return true;
             }
         }
 
-        // Verificar ganador en diagonal principal
-        if (taulell[0][0] != ' ' && taulell[0][0] == taulell[1][1] && taulell[1][1] == taulell[2][2]) {
-            System.out.println("¡Felicidades! ¡El jugador " + taulell[0][0] + " ha ganado!");
-            return true;
-        }
-
-        // Verificar ganador en diagonal secundaria
-        if (taulell[0][2] != ' ' && taulell[0][2] == taulell[1][1] && taulell[1][1] == taulell[2][0]) {
-            System.out.println("¡Felicidades! ¡El jugador " + taulell[0][2] + " ha ganado!");
-            return true;
-        }
-
-        return false; // No hay ganador
+        // Si no hay tres en raya en ninguna dirección, devuelve false
+        return false;
     }
 
 
-    private char[][] clonarTablero() {
-        // Método auxiliar para clonar el tablero actual
-        char[][] tableroClonado = new char[3][3];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                tableroClonado[i][j] = taulell[i][j];
+    // Método para copiar el tablero actual
+    private char[][] copiarTablero() {
+        char[][] copia = new char[tablero.length][tablero[0].length];
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                copia[i][j] = tablero[i][j];
             }
         }
-        return tableroClonado;
+        return copia;
     }
+
+    // Otros métodos del juego pueden seguir aquí...
 }
-
-
 

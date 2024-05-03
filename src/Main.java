@@ -9,7 +9,7 @@ public class Main {
 
         if (menu.partida) {
             menu.mostrarTaulell();
-            menu.recollirJugada(); //
+            menu.recollirJugada();
         } else if (menu.cpartida) {
             menu.mostrarTaulell();
         } else if (menu.configuracion) {
