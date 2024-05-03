@@ -6,6 +6,7 @@ public class Main {
         TUI menu = new TUI();
 
         menu.mostrarMenu();
+        //
 
         if (menu.partida) {
             menu.mostrarTaulell();
